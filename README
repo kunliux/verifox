@@ -1,0 +1,68 @@
+About VerifOx
+=============
+VerifOx is a path-wise Symbolic execution tool that is used for symbolic 
+reasoning of floating-point operations in C. VerifOx can also be used for 
+property verification of any generic C programs as well as equivalence 
+checking of C program against a high-level reference model. To this end, 
+VerifOx implements a model of the core IEEE 754 arithmetic operations 
+such as single- and double-precision addition, subtraction, multiplication 
+and division, which can be used as reference.
+
+COMPILING VERIFOX ON LINUX
+===========================
+Step 1: Download VerifOx from http://www.cprover.org/verifox/
+
+Step 2: Check out CBMC source via
+
+   git clone https://github.com/diffblue/cbmc cbmc-git
+
+Step 3: Navigate to VerifOx directory -- cd VerifOx 
+
+Step 4: cd src        
+
+Step 5: mv config.inc.template config.inc
+
+Step 6: Point the CBMC variable in config.inc file to point to cbmc 
+        that you downloaded in Step 2. Example: CBMC = /users/rajdeep/cbmc/
+
+Step 7: make 
+
+Step 8: cd hasco
+
+Step 9: The executables are : 
+         -- verifox-pi (partial incremental)
+         -- verifox-fi (full incremental)
+            
+
+SYSTEM REQUIREMENTS
+====================
+
+We assume that you have a Debian/Ubuntu or Red Hat-like distribution.
+
+You need a C/C++ compiler, Flex and Bison, and GNU make.
+The GNU Make needs to be version 3.81 or higher. On Debian-like
+distributions, do
+
+apt-get install g++ gcc flex bison make git libz-dev libwww-perl patch libzip-dev
+
+On Red Hat/Fedora or derivates, do
+
+yum install gcc gcc-c++ flex bison perl-libwww-perl patch
+
+
+About CBMC
+===========
+
+CBMC is a Bounded Model Checker for C and C++ programs. It supports C89, C99,
+most of C11 and most compiler extensions provided by gcc and Visual Studio. It
+also supports SystemC using Scoot. It allows verifying array bounds (buffer
+overflows), pointer safety, exceptions and user-specified assertions.
+Furthermore, it can check C and C++ for consistency with other languages, such
+as Verilog. The verification is performed by unwinding the loops in the program
+and passing the resulting equation to a decision procedure.
+
+For full information see (http://www.cprover.org/cbmc).
+
+License
+=======
+4-clause BSD license, see `LICENSE` file.
